@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "542583821031",
+    "firebase_url": "https://hahow-androidjava-atm.firebaseio.com",
+    "project_id": "hahow-androidjava-atm",
+    "storage_bucket": "hahow-androidjava-atm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542583821031:android:c9700b335f055a3b6a0842",
+        "android_client_info": {
+          "package_name": "com.example.rukka.atm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "542583821031-lvi7deqlpftgfsd788hb0ga3o62bgrdj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rukka.atm",
+            "certificate_hash": "6f3e66cb540131a170b28f688f662553eb0a1988"
+          }
+        },
+        {
+          "client_id": "542583821031-f0cj60pelj9u4cfu9fjnoojpbio0ai08.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkTuLhNTnQEexESr0LpWGwmX1MsOkZiHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "542583821031-f0cj60pelj9u4cfu9fjnoojpbio0ai08.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

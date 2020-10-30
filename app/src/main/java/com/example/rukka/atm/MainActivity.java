@@ -44,12 +44,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_LOGGING) {
-            if (requestCode != RESULT_OK) {
+            if (resultCode != RESULT_OK) {
                 finish();
             }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
