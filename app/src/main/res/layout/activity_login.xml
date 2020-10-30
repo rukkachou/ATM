@@ -88,4 +88,13 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btn_loggin"
         app:layout_constraintTop_toTopOf="@+id/btn_loggin" />
+
+    <CheckBox
+        android:id="@+id/chb_rem_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Remember"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edt_account"
+        app:layout_constraintStart_toEndOf="@+id/edt_account" />
 </androidx.constraintlayout.widget.ConstraintLayout>
