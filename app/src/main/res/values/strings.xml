@@ -9,4 +9,12 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string-array name="functions">
+        <item>Account Balance</item>
+        <item>Transaction History</item>
+        <item>Transfer</item>
+        <item>Foreign Exchange</item>
+        <item>Quit</item>
+    </string-array>
 </resources>
