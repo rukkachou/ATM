@@ -3,8 +3,13 @@ package com.example.rukka.atm;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -17,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final int REQUEST_CODE_CAMERA = 5;
     private EditText edtAccount;
     private EditText edtPassword;
     private CheckBox chbRemAccount;
@@ -96,6 +102,29 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void quit(View view) {
+        finish();
+    }
 
+    public void takePhoto(View view) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            capture();
+        } else {
+            requestPermissions(new String[] {Manifest.permission.CAMERA}, REQUEST_CODE_CAMERA);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE_CAMERA) {
+            if (permissions[0].equals(Manifest.permission.CAMERA) && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                capture();
+            }
+        }
+    }
+
+    private void capture() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivity(intent);
     }
 }

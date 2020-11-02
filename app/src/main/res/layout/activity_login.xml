@@ -97,4 +97,14 @@
         android:text="Remember"
         app:layout_constraintBaseline_toBaselineOf="@+id/edt_account"
         app:layout_constraintStart_toEndOf="@+id/edt_account" />
+
+    <Button
+        android:id="@+id/btn_takePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:onClick="takePhoto"
+        android:text="Take photo"
+        app:layout_constraintStart_toStartOf="@+id/btn_loggin"
+        app:layout_constraintTop_toBottomOf="@+id/btn_loggin" />
 </androidx.constraintlayout.widget.ConstraintLayout>
