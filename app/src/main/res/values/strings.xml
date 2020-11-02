@@ -15,6 +15,6 @@
         <item>Transaction History</item>
         <item>Transfer</item>
         <item>Foreign Exchange</item>
-        <item>Quit</item>
+        <item>Exit</item>
     </string-array>
 </resources>
