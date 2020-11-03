@@ -13,10 +13,14 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +41,31 @@ public class ContactActivity extends AppCompatActivity {
             showContact();
         } else {
             requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, REQUEST_CODE_READ_CONTACTS);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.contacts_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_upload) {
+            uploadContacts();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void uploadContacts() {
+        String name = getSharedPreferences("atm", MODE_PRIVATE)
+                .getString("ACCOUNT", null);
+        if (name != null) {
+            FirebaseDatabase.getInstance().getReference("users")
+                    .child(name)
+                    .child("contacts")
+                    .setValue(contactList);
         }
     }
 
@@ -87,7 +116,6 @@ public class ContactActivity extends AppCompatActivity {
     }
 
     class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
-
 
         @NonNull
         @Override
