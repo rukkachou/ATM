@@ -7,11 +7,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -22,7 +20,6 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // RecyclerView
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.content_recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         setupFunctions();
@@ -75,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
         functionsList.add(new Function(R.drawable.ic_transaction_histrory, functionsNameList[1]));
         functionsList.add(new Function(R.drawable.ic_transfer, functionsNameList[2]));
         functionsList.add(new Function(R.drawable.ic_foreign_exchange, functionsNameList[3]));
-        functionsList.add(new Function(R.drawable.ic_exit, functionsNameList[4]));
+        functionsList.add(new Function(R.drawable.ic_contact, functionsNameList[4]));
+        functionsList.add(new Function(R.drawable.ic_exit, functionsNameList[5]));
     }
 
     @Override
@@ -83,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == REQUEST_LOGGING) {
             if (resultCode != RESULT_OK) {
                 finish();
+            } else {
+                logon = true;
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
@@ -120,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(this, function.getItemName(), Toast.LENGTH_LONG).show();
                 Snackbar.make(v, function.getItemName(), Snackbar.LENGTH_SHORT).show();
                 break;
+            case R.drawable.ic_contact:
+                startActivity(new Intent(this, ContactActivity.class));
             case R.drawable.ic_exit:
             default:
                 finish();
@@ -159,8 +161,8 @@ public class MainActivity extends AppCompatActivity {
 
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
-                imageItem = itemView.findViewById(R.id.image_item);
-                textItem = itemView.findViewById(R.id.text_item);
+                imageItem = itemView.findViewById(R.id.image_grid_item);
+                textItem = itemView.findViewById(R.id.text_grid_item);
             }
         }
 
