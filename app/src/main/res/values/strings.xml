@@ -13,9 +13,11 @@
     <string-array name="functions">
         <item>Account Balance</item>
         <item>Transaction History</item>
-        <item>Transfer</item>
+        <item>Accounting</item>
         <item>Foreign Exchange</item>
         <item>Contact</item>
         <item>Exit</item>
     </string-array>
+
+    <string name="title_activity_accounting">Accounting</string>
 </resources>

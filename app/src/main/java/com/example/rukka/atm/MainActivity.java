@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         functionsList = new ArrayList<>();
         functionsList.add(new Function(R.drawable.ic_account_balance, functionsNameList[0]));
         functionsList.add(new Function(R.drawable.ic_transaction_histrory, functionsNameList[1]));
-        functionsList.add(new Function(R.drawable.ic_transfer, functionsNameList[2]));
+        functionsList.add(new Function(R.drawable.ic_accounting, functionsNameList[2]));
         functionsList.add(new Function(R.drawable.ic_foreign_exchange, functionsNameList[3]));
         functionsList.add(new Function(R.drawable.ic_contact, functionsNameList[4]));
         functionsList.add(new Function(R.drawable.ic_exit, functionsNameList[5]));
@@ -115,13 +115,16 @@ public class MainActivity extends AppCompatActivity {
         switch (function.getItemImageResource()) {
             case R.drawable.ic_account_balance:
             case R.drawable.ic_transaction_histrory:
-            case R.drawable.ic_transfer:
             case R.drawable.ic_foreign_exchange:
 //                Toast.makeText(this, function.getItemName(), Toast.LENGTH_LONG).show();
                 Snackbar.make(v, function.getItemName(), Snackbar.LENGTH_SHORT).show();
                 break;
+            case R.drawable.ic_accounting:
+                startActivity(new Intent(this, AccountingActivity.class));
+                break;
             case R.drawable.ic_contact:
                 startActivity(new Intent(this, ContactActivity.class));
+                break;
             case R.drawable.ic_exit:
             default:
                 finish();
