@@ -17,8 +17,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class AccountingActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -66,7 +64,7 @@ public class AccountingActivity extends AppCompatActivity {
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.accounting_list_item, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_accounting, parent, false);
             return new ViewHolder(v);
         }
 

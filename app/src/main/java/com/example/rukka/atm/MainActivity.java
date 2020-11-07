@@ -114,10 +114,12 @@ public class MainActivity extends AppCompatActivity {
     private void itemClicked(View v, Function function) {
         switch (function.getItemImageResource()) {
             case R.drawable.ic_account_balance:
-            case R.drawable.ic_transaction_histrory:
             case R.drawable.ic_foreign_exchange:
 //                Toast.makeText(this, function.getItemName(), Toast.LENGTH_LONG).show();
                 Snackbar.make(v, function.getItemName(), Snackbar.LENGTH_SHORT).show();
+                break;
+            case R.drawable.ic_transaction_histrory:
+                startActivity(new Intent(this, TransActivity.class));
                 break;
             case R.drawable.ic_accounting:
                 startActivity(new Intent(this, AccountingActivity.class));
@@ -136,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_item, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_item_main, parent, false);
             return new ViewHolder(view);
         }
 
