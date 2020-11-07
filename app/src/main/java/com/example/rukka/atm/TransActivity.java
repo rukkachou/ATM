@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,7 +64,8 @@ public class TransActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        parseJSON(json);
+//                        parseJSON(json);
+                        parseJSONByGson(json);
                     }
                 });
             }
@@ -70,6 +74,12 @@ public class TransActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.content_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
+    }
+
+    private void parseJSONByGson(String json) {
+        Gson gson = new Gson();
+        transactions = gson.fromJson(json, new TypeToken<List<TransEntity>>(){}.getType());
+        recyclerView.setAdapter(new Adapter());
     }
 
     private void parseJSON(String json) {
